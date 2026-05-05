@@ -28,7 +28,7 @@ function Hero(){
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-end">
 
           {/* SOCIALS */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-4">

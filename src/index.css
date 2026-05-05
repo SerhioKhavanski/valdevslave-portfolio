@@ -39,7 +39,7 @@
   }
 }
 .hero-img{
-    background-image: url(./valdevslave-portfolio/img/vladevslave.jpg);
+    background-image: url(/valdevslave-portfolio/img/vladevslave.jpg);
     background-size: cover;
 }
 @layer components {
