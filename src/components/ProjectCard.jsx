@@ -1,12 +1,12 @@
-function ProjectCard({project}){
-    const{title = "No title", description = "No Desription"}  = project
+function ProjectCard({project = {}}){
+    const{img = "https://images.unsplash.com/photo-1498050108023-c5249f4df085",title = "No title", description = "No Desription"}  = project
     return (
     <div className="glass rounded-3xl overflow-hidden hover:scale-[1.02] transition group">
 
       {/* IMAGE */}
       <div className="relative h-48 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+          src={img}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
         />

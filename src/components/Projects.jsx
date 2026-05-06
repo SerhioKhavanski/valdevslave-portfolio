@@ -1,6 +1,6 @@
 const projects = [
     {title:"Landing Page", description:"My first project"},
-    {title:"Portfolio", description:"Personal website"},
+    {img:"/valdevslave-portfolio/img/Screenshot 2026-05-06 094954.png",title:"Portfolio", description:"Personal website"},
     {title:"JS App", description:"Small JavaScript app"}
 ]
 
