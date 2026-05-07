@@ -1,19 +1,31 @@
+import { useState } from "react"
 import SkillCard from "./SkillCard.jsx"
+import CategoruButton from "../CategoryButton.jsx"
 
 const hardSkills = [
     {
-        id:"1",
-        img:"/valdevslave-portfolio/img/5968292.png",
-        skillName:"JavaScript",
-        desc:"Язык программирования",
-        hardSkillTags:["ES6+","Async","DOM"]
+      id:"1",
+      img:"/valdevslave-portfolio/img/5968292.png",
+      skillName:"JavaScript",
+      desc:"Язык программирования",
+      hardSkillTags:["ES6+","Async","DOM"],
+      category:"Programming"
     },
     {
       id:"2",
-        img:"/valdevslave-portfolio/img/6132221.png",
-        skillName:"C#",
-        desc:"Язык программирования",
-        hardSkillTags:["ES6+","Async","DOM"]
+      img:"/valdevslave-portfolio/img/6132221.png",
+      skillName:"C#",
+      desc:"Язык программирования",
+      hardSkillTags:["ES6+","Async","DOM"],
+      category:"Programming"
+    },
+    {
+      id:"3",
+      img:"/valdevslave-portfolio/img/graphic-design.png",
+      skillName:"Графический дизайн",
+      desc:"Графика любого уровня",
+      hardSkillTags:["Figma","Ilustrator","Photoshop"],
+      category:"Design"
     }
 ]
 const softSkills = [
@@ -25,10 +37,25 @@ const softSkills = [
         desc:"Умею объяснять сложные вещи простым языком и выстраивать диалог с клиентом."
     }
 ]
+const hardSkillMenu = ["All", "Programming", "Design", "Пить водку и не пьянеть"]
+
 
 function About(){
+    const[activeHardSkills,setActiveHardSkills] = useState("All")
+
+    const filteredHardSkills = hardSkills.filter(hardSkill =>{
+        if(activeHardSkills === "All"){
+          return true
+        }
+
+        if(hardSkill.category === activeHardSkills){
+          return true
+        }
+      }
+    )
+
     return (
-        <section className="px-6 py-24">
+      <section className="px-6 py-24">
       <div className="max-w-7xl mx-auto space-y-16">
 
         <div className="text-center space-y-4">
@@ -47,10 +74,28 @@ function About(){
             <h3 className="text-xl font-semibold">
               Hard Skills
             </h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {hardSkillMenu.map((menuPoint,index)=>(
+                  <CategoruButton
+                    key={index}
+                    category={menuPoint} 
+                    activeCategory = {activeHardSkills}
+                    setActiveCategory={setActiveHardSkills}/>
+                ))}
+            </div>
+
+            {filteredHardSkills.length>0?(
+              filteredHardSkills.map((skill,index) => (
+                <SkillCard skill={skill} key = {index}/>
+              ))
+            ):(
+                  <div className="col-span-full flex justify-center items-center py-20">
+                    <p className="glass px-8 py-4 rounded-2xl text-sm md:text-base text-black/60 dark:text-white/70 tracking-wide">
+                        Таких навыков покачто нет
+                    </p>
+                </div>
+            )}
             
-            {hardSkills.map((skill,index) => (
-              <SkillCard skill={skill} key = {index}/>
-            ))}
 
           </div>
 

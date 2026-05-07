@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import CategoruButton from './CategoryButton.jsx'
+import ProjectCard from './ProjectCard.jsx'
 const projects = [
     {title:"Landing Page", description:"My first project", category: "React"},
     {img:"/valdevslave-portfolio/img/Screenshot 2026-05-06 094954.png",title:"Portfolio", description:"Personal website", category: "C#"},
     {title:"JS App", description:"Small JavaScript app", category: "Fullstack"}
 ]
 const projectMenu = ["All", "React", "C#", "UI/UX", "Fullstack"]
-
-import ProjectCard from './ProjectCard.jsx'
 
 function Projects(){
 
@@ -30,8 +29,9 @@ function Projects(){
             </h2>
 
             <div className="flex flex-wrap justify-center gap-3">
-                {projectMenu.map((menuPoint) => (
+                {projectMenu.map((menuPoint,index) => (
                     <CategoruButton 
+                    key={index}
                     category ={menuPoint} 
                     activeCategory = {activeCategory}
                     setActiveCategory = {setActiveCategory}/>
