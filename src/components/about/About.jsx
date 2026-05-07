@@ -51,6 +51,8 @@ function About(){
         if(hardSkill.category === activeHardSkills){
           return true
         }
+
+        
       }
     )
 

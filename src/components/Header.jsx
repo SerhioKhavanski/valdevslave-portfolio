@@ -1,7 +1,21 @@
-const mainMenu = ["Home", "Projects", "About", "Contact"]
-import { useState } from "react"
+const mainMenu = ["Home", "About", "Projects", "Contact"]
+import { useState,useEffect } from "react"
 
 function Header(){
+
+  useEffect(()=>{
+    const abput = document.getElementById('Projects')
+    const sections = mainMenu.map(section => document.getElementById(section))
+    window.addEventListener("scroll",()=>{
+      sections.forEach(section => {
+        if(section.getBoundingClientRect().top<=300){
+          setActiveSection(section.id)
+        }
+      })
+      console.log(abput.getBoundingClientRect().top);
+    })
+    
+  },[])
   const[activeSection,setActiveSection]=useState("Home")
 
     return (
