@@ -4,18 +4,25 @@ import { useState,useEffect } from "react"
 function Header(){
 
   useEffect(()=>{
-    const abput = document.getElementById('Projects')
+    const centerWindow = window.innerHeight/2
     const sections = mainMenu.map(section => document.getElementById(section))
-    window.addEventListener("scroll",()=>{
-      sections.forEach(section => {
-        if(section.getBoundingClientRect().top<=300){
+    const handleScroll = () => {sections.forEach(section => {
+        if(Math.abs((section.getBoundingClientRect().top + section.getBoundingClientRect().height/2) - centerWindow)<200){
           setActiveSection(section.id)
         }
-      })
-      console.log(abput.getBoundingClientRect().top);
-    })
+      })}
+    window.addEventListener("scroll",handleScroll)
+    handleScroll()
+
+    return () =>{
+          window.removeEventListener("scroll",handleScroll)
+    }
+
     
   },[])
+
+
+
   const[activeSection,setActiveSection]=useState("Home")
 
     return (
