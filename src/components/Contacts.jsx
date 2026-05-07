@@ -1,6 +1,6 @@
 function Contacts(){
     return (
-        <section className="px-6 py-24">
+        <section id="Contact" className="px-6 py-24">
       <div className="max-w-7xl mx-auto space-y-16">
 
         {/* TITLE */}

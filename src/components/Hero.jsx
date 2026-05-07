@@ -1,7 +1,7 @@
 function Hero(){
     return (
 
-        <section className="pt-32 px-6">
+        <section id="Home" className="pt-32 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
         {/* LEFT CONTENT */}
